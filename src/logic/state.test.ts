@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { createInitialState, addAttempt, isWon } from './state';
+import { createInitialState, addAttempt, isWon } from './state.js';
 
 const exampleSecret = '0123';
 const exampleTime = 1000;

@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'vitest';
-import { generateSecret } from './generateSecret';
-import { createDigitValidator } from './createDigitValidator';
+import { generateSecret } from './generateSecret.js';
+import { createDigitValidator } from './createDigitValidator.js';
 
 describe('generateSecrets', () => {
   test('returns string of given length', () => {

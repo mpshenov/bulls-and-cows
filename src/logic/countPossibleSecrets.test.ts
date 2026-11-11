@@ -1,4 +1,4 @@
-import { countPossibleSecrets } from './countPossibleSecrets';
+import { countPossibleSecrets } from './countPossibleSecrets.js';
 import { describe, test, expect } from 'vitest';
 
 describe('countPossibleSecrets', () => {

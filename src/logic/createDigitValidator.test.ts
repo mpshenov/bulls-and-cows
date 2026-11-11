@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { createDigitValidator } from './createDigitValidator';
+import { createDigitValidator } from './createDigitValidator.js';
 
 describe('createDigitValidator', () => {
   describe('bin (base = 2)', () => {
