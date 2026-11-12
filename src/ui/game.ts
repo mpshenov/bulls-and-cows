@@ -4,6 +4,7 @@ import { evaluateGuess } from '../logic/evaluateGuess.js';
 import { addAttempt, isWon } from '../logic/state.js';
 import { createDigitValidator } from '../logic/createDigitValidator.js';
 import type { GameState } from '../logic/state.js';
+import { renderRecords } from './records.js';
 
 export type OnGameEnd = (state: GameState, elapsedMs: number) => void;
 export type OnNewGame = () => void;
@@ -80,5 +81,23 @@ export const renderGame = (
   container.appendChild(checkButton);
   container.appendChild(errorContainer);
   container.appendChild(historyContainer);
+  container.appendChild(newGameButton);
+};
+
+export const renderWin = (
+  container: HTMLElement,
+  state: GameState,
+  elapsedMs: number,
+  onNewGame: () => void,
+): void => {
+  clear(container);
+  container.appendChild(el('h1', 'Победа!'));
+  container.appendChild(el('p', `Попыток: ${state.history.length}`));
+  container.appendChild(el('p', `Время: ${(elapsedMs / 1000).toFixed(1)} сек`));
+  renderRecords(container, state.length, state.base);
+
+  const newGameButton = document.createElement('button');
+  newGameButton.textContent = 'Новая игра';
+  newGameButton.addEventListener('click', () => onNewGame());
   container.appendChild(newGameButton);
 };
