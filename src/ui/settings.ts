@@ -32,7 +32,7 @@ export const renderSettings = (container: HTMLElement, onStart: OnStart): void =
   }
 
   const updateLengthOptions = (base: number): void => {
-    for (const option of lengthSelectElement.options) {
+    for (const option of Array.from(lengthSelectElement.options)) {
       const len = Number(option.value);
       option.disabled = base === 2 && len > 2;
     }
